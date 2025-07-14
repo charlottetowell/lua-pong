@@ -1,11 +1,11 @@
 function love.draw()
-    love.graphics.print('Hello World!', 400, 300)
+    require "src/draw"
+    drawGame()
 end
 
 function love.load()
-   love.graphics.setNewFont(12)
-   love.graphics.setColor(0,0,0)
-   love.graphics.setBackgroundColor(255,255,255)
+    require "src.load"
+    loadGame()
 end
 
 function love.focus(f) gameIsPaused = not f end
@@ -13,9 +13,11 @@ function love.focus(f) gameIsPaused = not f end
 function love.update(dt)
 	if gameIsPaused then return end
 
-	-- The rest of your love.update code goes here
+    require "src/update"
+    updateGame(dt)
 end
 
 function love.quit()
-  print("Thanks for playing! Come back soon!")
+  require "src/quit"
+  quitGame()
 end
