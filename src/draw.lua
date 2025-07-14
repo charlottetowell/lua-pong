@@ -1,3 +1,7 @@
 function drawGame()
-    love.graphics.print('Hello World!', 400, 300)
+    love.graphics.rectangle("fill", ball.x, ball.y, ball.width, ball.height)
+
+	--draw paddles
+	love.graphics.rectangle("fill", leftPaddle.x, leftPaddle.y, leftPaddle.width, leftPaddle.height)
+	love.graphics.rectangle("fill", rightPaddle.x, rightPaddle.y, rightPaddle.width, rightPaddle.height)
 end
