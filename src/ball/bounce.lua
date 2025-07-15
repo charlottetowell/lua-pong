@@ -1,4 +1,4 @@
-function ball:bounce()
+function Ball:bounce()
     local positionSetback = 10
 
     -- reverse setback based on which paddle is hit

@@ -1,4 +1,4 @@
-function ball:stop()
+function Ball:stop()
     self.vel.y = 0
     self.vel.x = 0
 end

@@ -11,7 +11,7 @@ function Player:new(role)
 
     player.role = role
     require "/src/paddle/init"
-    player.paddle = Paddle:new()
+    player.paddle = Paddle:new(player)
 
     return player
 end
