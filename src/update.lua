@@ -1,36 +1,22 @@
 isGameOver = false
 
-function ball:bounce()
-    local positionSetback = 10
-    if self.vel.x > 0 then
-        positionSetback = positionSetback * -1
-    end
-    self.x = self.x + positionSetback
-    self.vel.x = self.vel.x * -1
-    self.vel.y = math.random(8, 10)
-    local r = math.random()
-    if r >= 0.5 then
-        self.vel.y = self.vel.y * -1
-    end
-end
-
 function updateGame(dt)
     if isGameOver then return end
 
-    ball.x = ball.x + ball.vel.x
-	ball.y = ball.y + ball.vel.y
+    require "src/ball/move"
+    ball:move()
 
+    require "src/ball/bounce"
     -- ball hits horizontal edge of screen (not a paddle)
     if (ball.x <= ball.width or ball.x >= (WINDOW_WIDTH_PX - ball.width)) then
         --paddles bounces
-        if ball.x > leftPaddle.x - ball.width and ball.y <= leftPaddle.y + leftPaddle.height and ball.y >= leftPaddle.y - ball.height then
+        if ball.x > players[2].paddle.x - ball.width and ball.y <= players[2].paddle.y + players[2].paddle.height and ball.y >= players[2].paddle.y - ball.height then
             ball:bounce()
-        elseif ball.x < rightPaddle.x + 5 and ball.y <= rightPaddle.y + rightPaddle.height and ball.y >= rightPaddle.y - ball.height then
+        elseif ball.x < players[1].paddle.x + 5 and ball.y <= players[1].paddle.y + players[1].paddle.height and ball.y >= players[1].paddle.y - ball.height then
             ball:bounce()
         else
             -- game over
-            ball.vel.x = 0
-            ball.vel.y = 0
+            ball:stop()
             print("GAME OVER")
             isGameOver = true
         end
@@ -42,17 +28,17 @@ function updateGame(dt)
         ball.vel.x = math.random(15)
     end
 
-    local paddleSpeed = 10
+    require "src/paddle/move"
     if love.keyboard.isDown("up") and rightPaddle.y >= 0 then
-        rightPaddle.y = rightPaddle.y - paddleSpeed
+        players[1].paddle:move()
     end
     if love.keyboard.isDown("down") and rightPaddle.y + rightPaddle.height < WINDOW_HEIGHT_PX then
-        rightPaddle.y = rightPaddle.y + paddleSpeed
+        players[1].paddle:move()
     end
     if love.keyboard.isDown("w") and leftPaddle.y > 0 then
-        leftPaddle.y = leftPaddle.y - paddleSpeed
+        players[2].paddle:move()
     end
     if love.keyboard.isDown("s") and leftPaddle.y + leftPaddle.height < WINDOW_HEIGHT_PX then
-        leftPaddle.y = leftPaddle.y + paddleSpeed
+        players[2].paddle:move()
     end
 end

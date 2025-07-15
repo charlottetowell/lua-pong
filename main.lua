@@ -4,7 +4,7 @@ function love.draw()
 end
 
 function love.load()
-    require "src.load"
+    require "src/load"
     loadGame()
 end
 
