@@ -1,16 +1,24 @@
-function ball:init()
-    require "src/globals/globals"
-    self.x = WINDOW_WIDTH_PX / 2
-    self.y = WINDOW_HEIGHT_PX / 2
-    self.vel = {}
-    self.vel.x = 8
-    self.vel.y = 0
-    self.height = 30
-    self.width = 30
-end
+Ball = {
+    x = 0
+    ,y = 0
+    ,vel = { x = 0,y = 0 }
+    ,height = 0
+    ,width = 0
+}
 
-function initBall()
-    ball = {}
-    ball:init()
+function Ball:new()
+    local ball = {}
+    setmetatable(ball, self)
+    self.__index = self
+
+    require "src/globals/globals"
+    ball.x = WINDOW_WIDTH_PX / 2
+    ball.y = WINDOW_HEIGHT_PX / 2
+    ball.vel = {}
+    ball.vel.x = 8
+    ball.vel.y = 0
+    ball.height = 30
+    ball.width = 30
+
     return ball
 end

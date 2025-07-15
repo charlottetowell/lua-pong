@@ -1,4 +1,4 @@
-function paddle:move()
+function Paddle:move()
     print("inPaddleMove function")
     -- self.y = math.max(
     --     math.min(

@@ -1,19 +1,27 @@
-function paddle:init(player)
-    require "src/globals/globals"
-    self.y = WINDOW_HEIGHT_PX / 2
-    self.width = 20
-    self.height = 200
+Paddle = {
+    x = 0
+    ,y = 0
+    ,width = 0
+    ,height = 0
+    ,vel = {x = 0, y = 0}
+    ,paddleSpeed = 0
+}
 
-    if player == 1 then
-        self.x = 0
-    elseif player == 2 then
-        self.x = WINDOW_WIDTH_PX - self.width
+function Paddle:new(player)
+    local paddle = {}
+    setmetatable(paddle, self)
+    self.__index = self
+
+    require "src/globals/globals"
+    paddle.y = WINDOW_HEIGHT_PX / 2
+    paddle.width = 20
+    paddle.height = 200
+
+    if player.role == 1 then
+        paddle.x = 0
+    elseif player.role == 2 then
+        paddle.x = WINDOW_WIDTH_PX - paddle.width
     end
 
-end
-
-function initPaddle(player)
-    paddle = {}
-    paddle:init(player)
     return paddle
 end

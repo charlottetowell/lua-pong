@@ -1,10 +1,3 @@
--- set window size
-WINDOW_WIDTH_PX = 600
-WINDOW_HEIGHT_PX = 600
-
-players = {}
-
-
 function loadGame()
     require "src/globals/globals"
 
@@ -21,13 +14,17 @@ function loadGame()
 
     -- init ball
     require "src/ball/init"
-    ball = initBall()
+    ball = Ball:new()
 
     -- init players
     require "src/player/init"
     local numPlayers = 2
+    players = {}
     for i=1,numPlayers do
-      players[i] = initPlayer()
+      print("Loading player" .. i)
+      players[i] = Player:new(i)
     end
+
+    print("Finish load")
 
 end

@@ -1,11 +1,17 @@
-function player:init()
-    require "src/paddle/init"
-    self.paddle = initPaddle(self)
-    self.score = 0
-end
+Player = {
+    paddle = Paddle
+    ,score = 0
+    ,role = 0
+}
 
-function initPlayer()
-    player = {}
-    player:init()
+function Player:new(role)
+    local player = {}
+    setmetatable(player, self)
+    self.__index = self
+
+    player.role = role
+    require "/src/paddle/init"
+    player.paddle = Paddle:new()
+
     return player
 end
