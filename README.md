@@ -1,6 +1,6 @@
 # Pong - Made with Lua x Love2D
 
-> A simple Pong game made with Lua x Love2D to teach myself an introduction to the langugae and game engine. 👾
+> A simple Pong game made with Lua x Love2D to teach myself an introduction to the language and game engine. 👾
 
 ![Pong Demo Image](image.png)
 
