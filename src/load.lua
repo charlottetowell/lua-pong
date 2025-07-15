@@ -23,7 +23,6 @@ function loadGame()
     for i=1,numPlayers do
       print("Loading player" .. i)
       players[i] = Player:new(i)
-      print("Created player ".. i .. "with role " .. i)
     end
 
     print("Finish load")

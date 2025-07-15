@@ -16,6 +16,7 @@ function updateGame(dt)
             ball:bounce()
         else
             -- game over
+            require "src/ball/stop"
             ball:stop()
             print("GAME OVER")
             isGameOver = true
@@ -29,16 +30,16 @@ function updateGame(dt)
     end
 
     require "src/paddle/move"
-    if love.keyboard.isDown("up") and rightPaddle.y >= 0 then
-        players[1].paddle:move()
+    if love.keyboard.isDown("up") and players[2].paddle.y >= 0 then
+        players[2].paddle:move(-1)
     end
-    if love.keyboard.isDown("down") and rightPaddle.y + rightPaddle.height < WINDOW_HEIGHT_PX then
-        players[1].paddle:move()
+    if love.keyboard.isDown("down") and players[2].paddle.y + players[2].paddle.height < WINDOW_HEIGHT_PX then
+        players[2].paddle:move(1)
     end
-    if love.keyboard.isDown("w") and leftPaddle.y > 0 then
-        players[2].paddle:move()
+    if love.keyboard.isDown("w") and players[1].paddle.y > 0 then
+        players[1].paddle:move(-1)
     end
-    if love.keyboard.isDown("s") and leftPaddle.y + leftPaddle.height < WINDOW_HEIGHT_PX then
-        players[2].paddle:move()
+    if love.keyboard.isDown("s") and players[1].paddle.y + players[1].paddle.height < WINDOW_HEIGHT_PX then
+        players[1].paddle:move(1)
     end
 end

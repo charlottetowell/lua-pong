@@ -16,6 +16,7 @@ function Paddle:new(player)
     paddle.y = WINDOW_HEIGHT_PX / 2
     paddle.width = 20
     paddle.height = 200
+    paddle.paddleSpeed = 15
 
     if player.role == 1 then
         paddle.x = 0
