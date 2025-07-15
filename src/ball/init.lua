@@ -15,7 +15,7 @@ function Ball:new()
     ball.x = WINDOW_WIDTH_PX / 2
     ball.y = WINDOW_HEIGHT_PX / 2
     ball.vel = {}
-    ball.vel.x = 8
+    ball.vel.x = -8
     ball.vel.y = 0
     ball.height = 30
     ball.width = 30
