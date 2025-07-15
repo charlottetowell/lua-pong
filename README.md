@@ -10,9 +10,9 @@
 
 ## How to Run
 * Clone this Repo
-* Install >= [Lua 5.8.4](https://www.lua.org/download.html)
+* Install >= [Lua 5.4.8](https://www.lua.org/download.html)
 * Install >= [Love2D 11.5](https://love2d.org/)
-* Drop the project folder containing the main.lua file over your Love2D shortcut to run (or alternatively use VSCode Love2D extension and press `alt+l`)
+* Drop this repo folder containing the `main.lua` file over your Love2D shortcut to run (or alternatively use VSCode Love2D extension and press `alt+l`)
 
 
 ## Feature Implementation Plan
