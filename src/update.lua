@@ -29,17 +29,8 @@ function updateGame(dt)
         ball.vel.x = math.random(15)
     end
 
-    require "src/paddle/move"
-    if love.keyboard.isDown("up") and players[2].paddle.y >= 0 then
-        players[2].paddle:move(-1)
-    end
-    if love.keyboard.isDown("down") and players[2].paddle.y + players[2].paddle.height < WINDOW_HEIGHT_PX then
-        players[2].paddle:move(1)
-    end
-    if love.keyboard.isDown("w") and players[1].paddle.y > 0 then
-        players[1].paddle:move(-1)
-    end
-    if love.keyboard.isDown("s") and players[1].paddle.y + players[1].paddle.height < WINDOW_HEIGHT_PX then
-        players[1].paddle:move(1)
-    end
+    require "src/player/update"
+    for i, player in ipairs(players) do
+		player:update()
+	end
 end

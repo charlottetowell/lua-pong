@@ -10,7 +10,7 @@ function Player:new(role)
     self.__index = self
 
     player.role = role
-    require "/src/paddle/init"
+    require "/src/player/paddle/init"
     player.paddle = Paddle:new(player)
 
     return player
