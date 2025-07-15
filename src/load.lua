@@ -2,7 +2,7 @@ function loadGame()
     require "src/globals/globals"
 
     -- set the game title
-    love.window.setTitle ("Post Delivery Game")
+    love.window.setTitle ("Pong")
 
     -- set colours
     love.graphics.setNewFont(12)
