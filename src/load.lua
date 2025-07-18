@@ -25,6 +25,8 @@ function loadGame()
       players[i] = Player:new(i)
     end
 
-    print("Finish load")
+    --set game state
+    CURRENT_STATE = STATES["MENU"]
 
+    print("Finish load")
 end

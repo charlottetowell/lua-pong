@@ -1,15 +1,5 @@
-isGameOver = false
+require "src/globals/globals"
 
 function updateGame(dt)
-    if isGameOver then return end
-
-    -- update ball
-    require "src/ball/update"
-    ball:update()
-
-    -- update players
-    require "src/player/update"
-    for i, player in ipairs(players) do
-		player:update()
-	end
+    CURRENT_STATE:update(dt)
 end
