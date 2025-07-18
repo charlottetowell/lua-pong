@@ -9,6 +9,8 @@ function menuState:update(dt)
     print("Updating for state " .. menuState.key)
 end
 
+local menuBackground = love.graphics.newImage( "assets/menu.png")
+
 function menuState:draw()
-    love.graphics.print("Menu State")
+    love.graphics.draw(menuBackground)
 end
