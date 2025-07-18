@@ -1,8 +1,5 @@
-function drawGame()
-    love.graphics.rectangle("fill", ball.x, ball.y, ball.width, ball.height)
+require "src/globals/globals"
 
-	--draw paddles
-	for i, player in ipairs(players) do
-		love.graphics.rectangle("fill", player.paddle.x, player.paddle.y, player.paddle.width, player.paddle.height)
-	end
+function drawGame()
+    CURRENT_STATE.draw()
 end

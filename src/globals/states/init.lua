@@ -1,7 +1,6 @@
 GameState = {
     key = ""
     ,transition_to_key = ""
-    ,is_game_active = false
 }
 
 function GameState:new(s)
