@@ -16,5 +16,7 @@ local width, height = menuBackground:getDimensions()
 local scaleFactor = 600 / width;
 
 function menuState:draw()
-    love.graphics.draw(menuBackground, 0, 0, 0, scaleFactor, scaleFactor)
+    love.graphics.setColor(1,1,1);
+    love.graphics.draw(menuBackground, 0, 0, 0, scaleFactor, scaleFactor);
+    love.graphics.setBackgroundColor(0.35,0.2,0.6)
 end
