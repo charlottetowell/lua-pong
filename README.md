@@ -23,7 +23,7 @@
 - [ ] Add in sound effects
 - [ ] Scoring system
 - [ ] Save files for scores
-- [ ] "Landing" screen to start the game
+- [x] "Landing" screen to start the game
 - [ ] Difficulty increase
 - [ ] Individual player buffs
 - [ ] Up to 4 player support
