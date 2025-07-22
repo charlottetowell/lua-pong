@@ -6,11 +6,15 @@ menuState = GameState:new({
 })
 
 function menuState:update(dt)
-    print("Updating for state " .. menuState.key)
+    --do nothing
 end
 
 local menuBackground = love.graphics.newImage( "assets/menu.png")
+menuBackground:setFilter("nearest", "nearest")
+local width, height = menuBackground:getDimensions()
+-- 600 should come from globals window size
+local scaleFactor = 600 / width;
 
 function menuState:draw()
-    love.graphics.draw(menuBackground)
+    love.graphics.draw(menuBackground, 0, 0, 0, scaleFactor, scaleFactor)
 end
