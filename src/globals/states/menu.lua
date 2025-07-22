@@ -37,8 +37,14 @@ end
 
 function menuState:update(dt)
    -- detect if start game button clicked
-
-
-   -- change state to PLAY   
-   local playState = StateRegistry:transitionTo(self.transition_to_key)
+    if love.mouse.isDown(1) then
+        local x, y = love.mouse.getPosition()
+        if x >= (WINDOW_WIDTH_PX - startGameButton.width) / 2 and
+            x <= (WINDOW_WIDTH_PX + startGameButton.width) / 2 and
+            y >= startGameButton.y and
+            y <= startGameButton.y + startGameButton.height then
+            --transition to PLAY
+            StateRegistry:transitionTo(self.transition_to_key)
+        end
+    end
 end
