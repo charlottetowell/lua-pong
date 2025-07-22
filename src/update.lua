@@ -1,5 +1,5 @@
-require "src/globals/globals"
+require "src/globals/states/registry"
 
 function updateGame(dt)
-    CURRENT_STATE:update(dt)
+    StateRegistry:getCurrentState():update(dt)
 end

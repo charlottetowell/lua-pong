@@ -1,9 +1,13 @@
 require "src/globals/states/init"
+require "src/globals/states/registry"
 
 playState = GameState:new({
     key = "PLAY"
     ,transition_to_key = "GAME_OVER"
 })
+
+-- register state
+StateRegistry:register(playState.key, playState)
 
 function playState:update(dt)
     print("Updating for state " .. playState.key)

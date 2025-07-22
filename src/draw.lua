@@ -1,5 +1,5 @@
-require "src/globals/globals"
+require "src/globals/states/registry"
 
 function drawGame()
-    CURRENT_STATE.draw()
+    StateRegistry:getCurrentState():draw()
 end

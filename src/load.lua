@@ -25,8 +25,16 @@ function loadGame()
       players[i] = Player:new(i)
     end
 
-    --set game state
-    CURRENT_STATE = STATES["MENU"]
+    -- load state registry
+    require "src/globals/states/registry"
+    
+    -- load all game states to registry
+    require "src/globals/states/menu"
+    require "src/globals/states/play"
+    require "src/globals/states/gameOver"
+
+    --set initial game state
+    StateRegistry:setCurrentState("MENU")
 
     print("Finish load")
 end
